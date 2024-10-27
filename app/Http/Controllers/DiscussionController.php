@@ -12,7 +12,8 @@ class DiscussionController extends Controller
      */
     public function index()
     {
-        //
+        $discussions = Discussion::all();
+        return view('discussions.index', compact('discussions'));
     }
 
     /**
@@ -20,7 +21,7 @@ class DiscussionController extends Controller
      */
     public function create()
     {
-        //
+        return view('discussions.create');
     }
 
     /**

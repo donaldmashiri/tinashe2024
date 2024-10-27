@@ -40,7 +40,7 @@
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
             <li><a href="/">Home</a></li>
-            <li><a href="#">Student/Lecturer</a></li>
+            <li><a href="content" class="external">Content uploads</a></li>
             <li><a href="/register" class="external">Register</a></li>
             <li><a href="/login" class="external">Login</a></li>
         </ul>

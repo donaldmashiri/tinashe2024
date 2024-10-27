@@ -12,7 +12,8 @@ class ContentUploadController extends Controller
      */
     public function index()
     {
-        //
+        $contents = ContentUpload::all();
+        return view('content-uploads.index', compact('contents'));
     }
 
     /**
@@ -20,7 +21,7 @@ class ContentUploadController extends Controller
      */
     public function create()
     {
-        //
+        return view('content-uploads.create');
     }
 
     /**
@@ -28,7 +29,7 @@ class ContentUploadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return back()->with('error', 'insert all fields');
     }
 
     /**

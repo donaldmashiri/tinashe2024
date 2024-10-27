@@ -19,7 +19,7 @@
                     </li>
 
                     <li class="me-2">
-                        <a href="#" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                        <a href="{{ route('content-uploads.index') }}" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
                             <i class="bi bi-upload"></i> Content Upload
                         </a>
                     </li>
@@ -31,7 +31,7 @@
                     </li>
 
                     <li class="me-2">
-                        <a href="#" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                        <a href="{{ route('discussions.index') }}" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
                             <i class="bi bi-chat-square"></i> Discussion Forum
                         </a>
                     </li>
