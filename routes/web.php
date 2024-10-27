@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContentUploadController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('content-uploads', ContentUploadController::class);
+    Route::resource('feedbacks', \App\Http\Controllers\FeedbackController::class);
+    Route::resource('discussions', \App\Http\Controllers\DiscussionController::class);
+    Route::resource('content-views', \App\Http\Controllers\ContentViewsController::class);
+    Route::resource('content-downloads', \App\Http\Controllers\ContentDonwloadController::class);
+
+});
+
+require __DIR__.'/auth.php';
