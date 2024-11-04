@@ -12,20 +12,14 @@
     <title>creARTive-Connect</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-grad-school.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
-    <!--
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/templatemo-grad-school.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/lightbox.css') }}">
 
-    TemplateMo 557 Grad School
-
-    https://templatemo.com/tm-557-grad-school
-
-    -->
 </head>
 
 <body>
@@ -40,9 +34,14 @@
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
             <li><a href="/">Home</a></li>
-            <li><a href="content" class="external">Content uploads</a></li>
-            <li><a href="/register" class="external">Register</a></li>
-            <li><a href="/login" class="external">Login</a></li>
+            <li><a href="/content" class="external">Content uploads</a></li>
+
+            @if (Auth::check())
+                <li><a href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a></li>
+            @else
+                <li><a href="/register" class="external">Register</a></li>
+                <li><a href="/login" class="external">Login</a></li>
+            @endif
         </ul>
     </nav>
 </header>

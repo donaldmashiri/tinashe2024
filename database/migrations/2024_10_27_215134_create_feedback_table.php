@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->integer('content_upload_id');
+            $table->string('feedback');
             $table->timestamps();
         });
     }

@@ -22,7 +22,7 @@
                         <small class="float-right">{{ $content->created_at }}</small>
 
                         <div class="text-button-view">
-                            <a href="{{ url('view/' . $content->id) }}">view <i class="fa fa-angle-double-right"></i></a>
+                            <a href="{{ url('show/' . $content->id) }}">view <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 </div>

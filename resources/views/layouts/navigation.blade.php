@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
 
-                    <a href="{{ route('dashboard') }}">
+                    <a href="/">
                         <a style="color: orange" class="fw-bolder" href="">{{ __('Creartive-Connect') }}</a>
                     </a>
                 </div>
@@ -25,13 +25,7 @@
                     </li>
 
                     <li class="me-2">
-                        <a href="/" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
-                            <i class="bi bi-cap"></i> Public View
-                        </a>
-                    </li>
-
-                    <li class="me-2">
-                        <a href="#" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                        <a href="{{ route('feedbacks.index') }}" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
                             <i class="bi bi-chat-dots"> </i> Feedbacks
                         </a>
                     </li>
@@ -43,7 +37,7 @@
                     </li>
 
                     <li class="me-2">
-                        <a href="#" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                        <a href="{{ route('reports.index') }}" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
                             <i class="bi bi-bar-chart-line"></i> Analytics and Reporting
                         </a>
                     </li>

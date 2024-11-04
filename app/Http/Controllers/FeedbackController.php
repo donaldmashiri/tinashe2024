@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FeedbackController extends Controller
 {
@@ -12,7 +13,8 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        //
+        $feedbacks = Feedback::all();
+        return view('feedbacks.index', compact('feedbacks'));
     }
 
     /**
@@ -28,7 +30,22 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (!Auth::check()) {
+            return back()->with('error', 'Please login to submit feedback.');
+        }
+
+        $request->validate([
+            'content_upload_id' => 'required',
+            'feedback' => 'required',
+        ]);
+
+        Feedback::create([
+            'user_id' => Auth::user()->id,
+            'content_upload_id' => $request->content_upload_id,
+            'feedback' => $request->feedback,
+        ]);
+
+        return back()->with('success', 'Successfully sent feedback.');
     }
 
     /**
