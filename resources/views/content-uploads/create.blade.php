@@ -25,23 +25,19 @@
 
                             <div class="mt-4">
                                 <x-input-label for="description" :value="__('Description')" />
-                                <input id="description" type="hidden" name="case_description">
-                                <trix-editor input="case_description"></trix-editor>
-                                <x-input-error :messages="$errors->get('case_description')" class="mt-2" />
+                                <input id="description" type="hidden" name="description">
+                                <trix-editor input="description"></trix-editor>
+                                <x-input-error :messages="$errors->get('description')" class="mt-2" />
                             </div>
 
                             <div class="mt-4">
                                 <x-input-label for="content_type" :value="__('Content Type')" />
                                 <select name="content_type" id="" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" >
                                     <option value="">Select Content Type</option>
-                                    <option value="Contract disputes">Contract disputes</option>
-                                    <option value="Criminal cases">Criminal cases</option>
-                                    <option value="Bankruptcy">Bankruptcy</option>
-                                    <option value="Personal injury">Personal injury</option>
-                                    <option value="Property law">Property law</option>
-                                    <option value="Family law">Family law</option>
+                                    <option value="research_paper">research_paper</option>
+                                    <option value="creative_work">creative_work</option>
                                 </select>
-                                <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('content_type')" class="mt-2" />
                             </div>
 
                             <div class="mt-4 p-1">

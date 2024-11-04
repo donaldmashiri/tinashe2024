@@ -12,7 +12,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-3 lg:px-3">
             <div class="bg-white overflow-hidden  text-center shadow-sm sm:rounded-lg">
-
+                @include('layouts.messages')
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     @if($contents->count() > 0)
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-bordered">
@@ -31,10 +31,10 @@
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <td class="px-2 py-1">{{$loop->iteration}}</td>
                                     <td class="px-2 py-1">{{$content->title}}</td>
-                                    <td class="px-2 py-1">{{$content->description}}</td>
+                                    <td class="px-2 py-1">{!! $content->description !!}</td>
                                     <td class="px-2 py-1">{{$content->content_type}}</td>
                                     <td class="px-2 py-1">
-                                        <a href="{{ asset($content->file_path) }}" class="text-blue-600 dark:text-blue-500 hover:underline" target="_blank">Download</a>
+                                        <a href="{{asset('storage/'.$content->file_path)}}"  class="text-blue-600 dark:text-blue-500 hover:underline" target="_blank">Download</a>
                                     </td>
                                     <td class="px-2 py-1">
                                         <a href="{{ route('content-uploads.show', $content->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>

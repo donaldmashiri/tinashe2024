@@ -10,119 +10,23 @@
           </div>
         </div>
         <div class="owl-carousel owl-theme">
-          <div class="item">
-            <img src="assets/images/courses-01.jpg" alt="Course #1">
-            <div class="down-content">
-              <h4>Digital Marketing</h4>
-              <p>You can get view images and videos for your websites by visiting Unsplash, Pixabay, and Pexels.</p>
+            @foreach($contents as $content)
+                <div class="item">
+                    @php
+                        $randomNumber = rand(1, 5);
+                    @endphp
+                    <img src="assets/images/courses-{{ str_pad($randomNumber, 2, '0', STR_PAD_LEFT) }}.jpg" alt="Course #{{ $randomNumber + 1 }}">
+                    <div class="down-content">
+                        <h4>{{ $content->title }}</h4>
+                        <p>{{ $content->content_type }}</p>
+                        <small class="float-right">{{ $content->created_at }}</small>
 
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-02.jpg" alt="Course #2">
-            <div class="down-content">
-              <h4>Business World</h4>
-              <p>Quisque cursus augue ut velit dictum, quis volutpat enim blandit. Maecenas a lectus ac ipsum porta.</p>
-
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-03.jpg" alt="Course #3">
-            <div class="down-content">
-              <h4>Media Technology</h4>
-              <p>Pellentesque ultricies diam magna, auctor cursus lectus pretium nec. Maecenas finibus lobortis enim.</p>
-
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-04.jpg" alt="Course #4">
-            <div class="down-content">
-              <h4>Communications</h4>
-              <p>Download view images and videos for your websites by visiting Unsplash, Pixabay, and Pexels.</p>
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-05.jpg" alt="">
-            <div class="down-content">
-              <h4>Business Ethics</h4>
-              <p>Pellentesque ultricies diam magna, auctor cursus lectus pretium nec. Maecenas finibus lobortis enim.</p>
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-01.jpg" alt="">
-            <div class="down-content">
-              <h4>Photography</h4>
-              <p>Quisque cursus augue ut velit dictum, quis volutpat enim blandit. Maecenas a lectus ac ipsum porta.</p>
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-02.jpg" alt="">
-            <div class="down-content">
-              <h4>Web Development</h4>
-              <p>Pellentesque ultricies diam magna, auctor cursus lectus pretium nec. Maecenas finibus lobortis enim.</p>
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-03.jpg" alt="">
-            <div class="down-content">
-              <h4>Learn HTML CSS</h4>
-              <p>You can get view images and videos for your websites by visiting Unsplash, Pixabay, and Pexels.</p>
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-04.jpg" alt="">
-            <div class="down-content">
-              <h4>Social Media</h4>
-              <p>Pellentesque ultricies diam magna, auctor cursus lectus pretium nec. Maecenas finibus lobortis enim.</p>
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-05.jpg" alt="">
-            <div class="down-content">
-              <h4>Digital Arts</h4>
-              <p>Quisque cursus augue ut velit dictum, quis volutpat enim blandit. Maecenas a lectus ac ipsum porta.</p>
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <img src="assets/images/courses-01.jpg" alt="">
-            <div class="down-content">
-              <h4>Media Streaming</h4>
-              <p>Pellentesque ultricies diam magna, auctor cursus lectus pretium nec. Maecenas finibus lobortis enim.</p>
-              <div class="text-button-view">
-                <a href="#">view <i class="fa fa-angle-double-right"></i></a>
-              </div>
-            </div>
-          </div>
+                        <div class="text-button-view">
+                            <a href="{{ url('view/' . $content->id) }}">view <i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
       </div>
     </div>
