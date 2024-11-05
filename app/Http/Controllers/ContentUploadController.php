@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContentUpload;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,9 +64,11 @@ class ContentUploadController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ContentUpload $contentUpload)
+    public function show(string $contentUpload)
     {
-        //
+        $content = ContentUpload::findorfail($contentUpload);
+        $feedbacks = Feedback::where('content_upload_id', $contentUpload)->get();
+        return view('content-uploads.show', compact('content', 'feedbacks'));
     }
 
     /**

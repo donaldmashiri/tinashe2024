@@ -18,9 +18,10 @@
                         <img src="{{ asset('assets/images/courses-02.jpg') }}">
                         <div class="down-content">
                             <h4>{{ $content->title }}</h4>
-                            <h4>{!! $content->description !!}</h4>
-                            <p>{{ $content->content_type }}</p>
+                            <p class="bg-light">{!! $content->description !!}</p>
                             <small class="float-right">{{ $content->created_at }}</small>
+                            <h6>{{ $content->content_type }}</h6>
+                            <a href="{{ asset('storage/'.$content->file_path) }}" class="text-blue-600 dark:text-blue-600 hover:underline" target="_blank" download="">Download</a>
                         </div>
 
                         <div class="card-footer">
