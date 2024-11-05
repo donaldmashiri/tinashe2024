@@ -6,12 +6,17 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
 
-                    <a href="/">
+                    <a href="{{ url('/') }}">
                         <a style="color: orange" class="fw-bolder" href="">{{ __('Creartive-Connect') }}</a>
                     </a>
                 </div>
 
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+                    <li class="me-2">
+                        <a href="{{ url('/content') }}" target="_blank" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+                            <i class="bi bi-pen"></i> public
+                        </a>
+                    </li>
                     <li class="me-2">
                         <a href="/dashboard" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
                             <i class="bi bi-person-circle"></i> Profile
@@ -32,13 +37,13 @@
 
                     <li class="me-2">
                         <a href="{{ route('discussions.index') }}" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
-                            <i class="bi bi-chat-square"></i> Discussion Forum
+                            <i class="bi bi-chat-square"></i> Discussion
                         </a>
                     </li>
 
                     <li class="me-2">
                         <a href="{{ route('reports.index') }}" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
-                            <i class="bi bi-bar-chart-line"></i> Analytics and Reporting
+                            <i class="bi bi-bar-chart-line"></i> Analytics Report
                         </a>
                     </li>
                 </ul>

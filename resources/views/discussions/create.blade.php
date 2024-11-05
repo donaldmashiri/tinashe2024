@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <i class="bi bi-newspaper"></i> {{ __('Content Uploads') }}
+            <i class="bi bi-newspaper"></i> {{ __('Discussions') }}
             <a href="{{route('discussions.index')}}"
                class="py-2 px-4 text-white text-sm float-right font-semibold rounded-lg border border-yellow-600 bg-yellow-600">
                 <i class="bi bi-plus"></i>Back
