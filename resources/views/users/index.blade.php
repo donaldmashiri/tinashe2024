@@ -45,8 +45,16 @@
                                     <td class="px-2 py-1">{{ $user->regnum }}</td>
                                     <td class="px-2 py-1">{{ $user->programme }}</td>
                                     <td class="px-2 py-1">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                            Delete
+                                        {{-- <form action="{{ route('users.delete', $user->id) }}">
+                                            @csrf
+                                            @method('PUT')
+                                            <button class="btn-danger btn-sm">Delete</button>
+                                        </form> --}}
+                                        <a href="{{ route('users.edit', $user->id) }}" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Edit</a>
+
+
+                                        <a href="{{ route('users.show', $user->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                            View
                                         </a>
                                     </td>
                                 </tr>

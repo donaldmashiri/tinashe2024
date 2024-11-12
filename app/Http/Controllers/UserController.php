@@ -14,7 +14,16 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        // Check if the authenticated user is an admin
+        if (auth()->user()->user_type === 'admin') {
+            // If the user is an admin, return all users
+            $users = User::all();
+        } else {
+            // If not an admin, return users with the same company number
+            $users = User::where('company_number', auth()->user()->company_number)->get();
+        }
+
+        // Return the view with the users data
         return view('users.index', compact('users'));
     }
 
@@ -66,7 +75,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -74,7 +84,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
     }
 
     /**
