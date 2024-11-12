@@ -1,40 +1,43 @@
 @include('layouts.homeNav')
 
 
-<section class="section courses text-white" data-section="section4">
+<section class="text-white section courses" data-section="section4">
     <div class="col-md-12">
         <div class="section-heading">
             <h2>Register </h2>
         </div>
     </div>
-    <div class="container mt-5 pb-3">
+    <div class="container pb-3 mt-5">
         <div class="row">
-            <h5 class="card-header">Registration</h5>
+            <h5 class="card-header">Univeristy Registration</h5>
             <div class="card-body">
                 @include('layouts.messages')
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
-                    <div>
+                    <input type="hidden" name="user_type" value="university">
+
+                    {{-- <div>
                         <label for="name">User Type</label>
-                        <select name="user_type" class="form-group form-control mb-3" id="user_type">
+
+                        <select name="user_type" class="mb-3 form-group form-control" id="user_type">
                             <option value="">Select User Type</option>
                             <option value="student">student</option>
                             <option value="lecturer">lecturer</option>
                             <option value="other">other</option>
                         </select>
                         <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
-                    </div>
+                    </div> --}}
 
                     <div>
                         <label for="name">Name</label>
-                        <input id="name" class="form-control form-group mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                        <input id="name" class="w-full mt-1 form-control form-group" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
                     <!-- Email Address -->
                     <div class="mt-4">
                         <label for="name">Email</label>
-                        <input id="email" class="form-control form-group mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                        <input id="email" class="w-full mt-1 form-control form-group" type="email" name="email" :value="old('email')" required autocomplete="username" />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
@@ -42,7 +45,7 @@
                     <div class="mt-4">
                         <label for="name">Password</label>
 
-                        <input id="password" class="form-control form-group mt-1 w-full"
+                        <input id="password" class="w-full mt-1 form-control form-group"
                                type="password"
                                name="password"
                                required autocomplete="new-password" />
@@ -53,7 +56,7 @@
                     <!-- Confirm Password -->
                     <div class="mt-4">
                         <label for="name">Confirm Password</label>
-                        <input id="password_confirmation" class="form-control form-group mt-1 w-full"
+                        <input id="password_confirmation" class="w-full mt-1 form-control form-group"
                                type="password"
                                name="password_confirmation" required autocomplete="new-password" />
 
@@ -61,7 +64,7 @@
                     </div>
 
                     <div class="flex items-center justify-end mt-4">
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                        <a class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                             {{ __('Already registered?') }}
                         </a>
 

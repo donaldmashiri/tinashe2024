@@ -37,10 +37,15 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        do {
+            $company_number = rand(100, 999);
+        } while (User::where('company_number', $company_number)->exists());
+
         $user = User::create([
             'user_type' => $request->user_type,
             'name' => $request->name,
             'email' => $request->email,
+            'company_number' => $company_number,
             'password' => Hash::make($request->password),
         ]);
 

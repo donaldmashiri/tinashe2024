@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('discussions', \App\Http\Controllers\DiscussionController::class);
     Route::resource('content-views', \App\Http\Controllers\ContentViewsController::class);
     Route::resource('content-downloads', \App\Http\Controllers\ContentDonwloadController::class);
+    Route::resource('users', \App\Http\Controllers\UserController::class);
 
 });
 

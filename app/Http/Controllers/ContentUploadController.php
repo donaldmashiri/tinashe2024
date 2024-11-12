@@ -45,6 +45,7 @@ class ContentUploadController extends Controller
         ]);
 
         // Handle the file upload
+        $filePath = null;
         if ($request->hasFile('file_path')) {
             $filePath = $request->file('file_path')->store('uploads', 'public');
         }

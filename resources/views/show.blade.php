@@ -21,7 +21,12 @@
                             <p class="bg-light">{!! $content->description !!}</p>
                             <small class="float-right">{{ $content->created_at }}</small>
                             <h6>{{ $content->content_type }}</h6>
-                            <a href="{{ asset('storage/'.$content->file_path) }}" class="text-blue-600 dark:text-blue-600 hover:underline" target="_blank" download="">Download</a>
+                            <a href="{{ asset($content->file_path) }}"
+                                class="text-blue-600 dark:text-blue-600 hover:underline"
+                                target="_blank"
+                                download="{{ basename($content->file_path) }}">
+                                Download
+                             </a>
                         </div>
 
                         <div class="card-footer">
@@ -33,7 +38,7 @@
                                             <input type="hidden" name="content_upload_id" value="{{ $content->id }}">
                                             <div class="p-2">
                                                 <input type="text" class="form-control" name="feedback" placeholder="Leave your feedback here..." required>
-                                                <button type="submit" class="btn btn-success float-right btn-sm mt-3">Feedback</button>
+                                                <button type="submit" class="float-right mt-3 btn btn-success btn-sm">Feedback</button>
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +61,7 @@
                                     @endif
                                     <strong>{{ $feedback->user->name }}</strong>:
                                     <p class="mb-0" style="display: inline;">  {{ $feedback->feedback }}</p>
-                                    <small class="text-muted float-right">{{ $feedback->created_at->diffForHumans() }}</small> <!-- Time ago -->
+                                    <small class="float-right text-muted">{{ $feedback->created_at->diffForHumans() }}</small> <!-- Time ago -->
                                 </div>
                                 <hr>
                             @endforeach

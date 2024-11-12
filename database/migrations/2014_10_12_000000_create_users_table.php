@@ -16,8 +16,14 @@ return new class extends Migration
             $table->string('user_type');
             $table->string('name');
             $table->string('email')->unique();
+            $table->integer('company_number');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('expertise')->nullable();
+            $table->string('skill_set')->nullable();
+            $table->string('academic_level')->nullable();
+            $table->string('regnum')->nullable();
+            $table->string('programme')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
