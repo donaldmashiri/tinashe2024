@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ContentDonwload;
+use App\Models\Messaging;
 use Illuminate\Http\Request;
 
-class ContentDonwloadController extends Controller
+class MessagingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,13 +28,24 @@ class ContentDonwloadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'receiver_id' => ['required'],
+            'message' => ['required', 'min:3'],
+        ]);
+
+
+        $mssage = Messaging::create([
+            'receiver_id' => $request->receiver_id,
+            'message' => $request->message,
+            'user_id' => auth()->user()->id,
+        ]);
+        return redirect()->back()->with('success', 'Message sent.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(ContentDonwload $contentDonwload)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +53,7 @@ class ContentDonwloadController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ContentDonwload $contentDonwload)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +61,7 @@ class ContentDonwloadController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ContentDonwload $contentDonwload)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +69,7 @@ class ContentDonwloadController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ContentDonwload $contentDonwload)
+    public function destroy(string $id)
     {
         //
     }

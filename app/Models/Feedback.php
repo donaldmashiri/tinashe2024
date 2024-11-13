@@ -19,4 +19,9 @@ class Feedback extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function contentUpload()
+    {
+        return $this->belongsTo(related: ContentUpload::class);
+    }
 }

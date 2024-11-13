@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\ContentUpload;
 use App\Models\Discussion;
 use App\Models\Feedback;
+use App\Models\Messaging;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,6 +20,8 @@ class ReportController extends Controller
         $contentCount = ContentUpload::count();
         $feedbackCount = Feedback::count();
         $discussionCount = Discussion::count();
+        $commentsCount = Comment::count();
+        $messagesCount = Messaging::count();
 
 
         $users = User::all();
@@ -26,10 +30,12 @@ class ReportController extends Controller
         // Count lecturers and students
         $lecturerCount = $users->where('user_type', 'lecturer')->count();
         $studentCount = $users->where('user_type', 'student')->count();
+        $universityCount = $users->where('user_type', 'university')->count();
 
 
 
-        return view('reports.index', compact('users', 'userCount', 'lecturerCount', 'studentCount', 'contentCount', 'feedbackCount', 'discussionCount'));
+        return view('reports.index', compact('users', 'userCount', 'lecturerCount', 'studentCount', 'contentCount', 'feedbackCount',
+        'discussionCount', 'universityCount', 'commentsCount', 'messagesCount'));
     }
 
     /**

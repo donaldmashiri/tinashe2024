@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ContentViews extends Model
+class ContentDownload extends Model
 {
     use HasFactory;
 
@@ -23,5 +23,4 @@ class ContentViews extends Model
     {
         return $this->belongsTo(related: ContentUpload::class);
     }
-
 }

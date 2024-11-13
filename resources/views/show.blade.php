@@ -21,11 +21,14 @@
                             <p class="bg-light">{!! $content->description !!}</p>
                             <small class="float-right">{{ $content->created_at }}</small>
                             <h6>{{ $content->content_type }}</h6>
+                            <p>By:
+                                <a href="{{ route('users.show', $content->user->id )}}" target="_blank">{{ $content->user->name }}</a>
+                            </p>
                             <a href="{{ asset($content->file_path) }}"
-                                class="text-blue-600 dark:text-blue-600 hover:underline"
+                                class="text-blue-800 dark:text-blue-800 hover:underline"
                                 target="_blank"
                                 download="{{ basename($content->file_path) }}">
-                                Download
+                                <i class="bi bi-download"></i> Download
                              </a>
                         </div>
 
@@ -53,7 +56,7 @@
                             <p class="alert alert-danger">No feedbacks yet.</p>
                         @else
                             @foreach($feedbacks as $feedback)
-                                <div class="feedback-item bg-light d-flex align-items-center">
+                                <div class="feedback-item bg-light align-items-center">
                                     @if ($feedback->user->user_type == 'lecturer')
                                         <img src="{{ asset('assets/images/lecturer.png') }}" alt="User Avatar" class="rounded-circle" style="width: 30px; height: 30px; margin-right: 10px;">
                                     @else
@@ -61,9 +64,11 @@
                                     @endif
                                     <strong>{{ $feedback->user->name }}</strong>:
                                     <p class="mb-0" style="display: inline;">  {{ $feedback->feedback }}</p>
-                                    <small class="float-right text-muted">{{ $feedback->created_at->diffForHumans() }}</small> <!-- Time ago -->
+
+                                    <small class="float-right text-muted">{{ $feedback->created_at->diffForHumans() }}</small>
+                                    <hr>
                                 </div>
-                                <hr>
+
                             @endforeach
                         @endif
                     </div>

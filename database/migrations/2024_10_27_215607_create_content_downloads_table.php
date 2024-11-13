@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('content_donwloads', function (Blueprint $table) {
+        Schema::create('content_downloads', function (Blueprint $table) {
             $table->id();
             $table->integer('content_upload_id');
-            $table->integer('downloaded_by');
+            $table->integer(column: 'user_id');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('content_donwloads');
+        Schema::dropIfExists('content_downloads');
     }
 };

@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('content_views', function (Blueprint $table) {
+        Schema::create('messagings', function (Blueprint $table) {
             $table->id();
-            $table->integer('content_upload_id');
+            $table->string('receiver_id');
+            $table->text('message')->nullable();
+            $table->text('document')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('content_views');
+        Schema::dropIfExists('messagings');
     }
 };

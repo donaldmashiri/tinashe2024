@@ -5,23 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ContentViews extends Model
+class Messaging extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'content_upload_id',
+        'receiver_id',
+        'message',
+        'document',
         'user_id',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
-
-    public function contentUpload()
-    {
-        return $this->belongsTo(related: ContentUpload::class);
-    }
-
 }

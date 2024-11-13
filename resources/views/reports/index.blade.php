@@ -4,33 +4,37 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h1 class="fw-bold mb-3"> {{ __("Dashboard Reports ") }}</h1>
+                    <h1 class="mb-3 fw-bold"> {{ __("Dashboard Reports ") }}</h1>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card">
-                                <h5 style="background-color: saddlebrown" class="card-header text-white"> Users Reports</h5>
-                                <table class="w-full text-sm table table-striped">
+                                <h5 style="background-color: saddlebrown" class="text-white card-header"> Users Reports</h5>
+                                <table class="table w-full text-sm table-striped">
                                     <thead>
                                     <tr class="bg-gray-100">
-                                        <th class="py-1 px-2 text-left">Description</th>
-                                        <th class="py-1 px-2 text-left">Count</th>
+                                        <th class="px-2 py-1 text-left">Description</th>
+                                        <th class="px-2 py-1 text-left">Count</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="border-t text-sm">
-                                        <td class="py-1 px-2"><i class="fas fa-star text-info"></i>Users Total</td>
-                                        <td class="py-1 px-2">{{$userCount}}</td>
+                                    <tr class="text-sm border-t">
+                                        <td class="px-2 py-1"><i class="fas fa-star text-info"></i>Users Total</td>
+                                        <td class="px-2 py-1">{{$userCount}}</td>
                                     </tr>
-                                    <tr class="border-t text-sm">
-                                        <td class="py-1 px-2"><i class="fas fa-star text-info"></i>Lecturer</td>
-                                        <td class="py-1 px-2">{{$lecturerCount}}</td>
+                                    <tr class="text-sm border-t">
+                                        <td class="px-2 py-1"><i class="fas fa-star text-info"></i>Lecturer</td>
+                                        <td class="px-2 py-1">{{$lecturerCount}}</td>
                                     </tr>
-                                    <tr class="border-t text-sm">
-                                        <td class="py-1 px-2"><i class="fas fa-star text-info"></i>Student</td>
-                                        <td class="py-1 px-2">{{$studentCount}}</td>
+                                    <tr class="text-sm border-t">
+                                        <td class="px-2 py-1"><i class="fas fa-star text-info"></i>Student</td>
+                                        <td class="px-2 py-1">{{$studentCount}}</td>
+                                    </tr>
+                                    <tr class="text-sm border-t">
+                                        <td class="px-2 py-1"><i class="fas fa-star text-info"></i>University</td>
+                                        <td class="px-2 py-1">{{$universityCount}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -38,37 +42,41 @@
                         </div>
                         <div class="col-md-6">
                             <div class="card">
-                                <h5 style="background-color: sandybrown" class="card-header text-white"> Content Uploads</h5>
-                                <table class="w-full table table-striped">
+                                <h5 style="background-color: sandybrown" class="text-white card-header"> Content Uploads</h5>
+                                <table class="table w-full table-striped">
                                     <thead>
                                     <tr class="bg-gray-100">
-                                        <th class="py-1 px-2 text-left">Description</th>
-                                        <th class="py-1 px-2 text-left">Count</th>
+                                        <th class="px-2 py-1 text-left">Description</th>
+                                        <th class="px-2 py-1 text-left">Count</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="border-t text-sm">
-                                        <td class="py-1 px-2"><i class="fas fa-star text-info"></i>Content</td>
-                                        <td class="py-1 px-2">{{$contentCount}}</td>
+                                    <tr class="text-sm border-t">
+                                        <td class="px-2 py-1"><i class="fas fa-star text-info"></i>Content</td>
+                                        <td class="px-2 py-1">{{$contentCount}}</td>
                                     </tr>
-                                    <tr class="border-t text-sm">
-                                        <td class="py-1 px-2"><i class="fas fa-star text-info"></i>Feedbacks</td>
-                                        <td class="py-1 px-2">{{$feedbackCount}}</td>
+                                    <tr class="text-sm border-t">
+                                        <td class="px-2 py-1"><i class="fas fa-star text-info"></i>Feedbacks</td>
+                                        <td class="px-2 py-1">{{$feedbackCount}}</td>
                                     </tr>
-                                    <tr class="border-t text-sm">
-                                        <td class="py-1 px-2"><i class="fas fa-star text-info"></i>Discussions</td>
-                                        <td class="py-1 px-2">{{$discussionCount}}</td>
+                                    <tr class="text-sm border-t">
+                                        <td class="px-2 py-1"><i class="fas fa-star text-info"></i>Comments</td>
+                                        <td class="px-2 py-1">{{$commentsCount}}</td>
+                                    </tr>
+                                    <tr class="text-sm border-t">
+                                        <td class="px-2 py-1"><i class="fas fa-star text-info"></i>Messaging</td>
+                                        <td class="px-2 py-1">{{$messagesCount}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
-                        <div class="col-md-12 mt-4">
+                        {{-- <div class="mt-4 col-md-12">
                             <div class="card">
                                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                                     @if($users->count() > 0)
-                                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-bordered">
+                                        <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400 table-bordered">
                                             <thead  style="background-color: dodgerblue" class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                             <tr>
                                                 <th scope="col" class="px-2 py-1">#</th>
@@ -93,11 +101,11 @@
                                             </tbody>
                                         </table>
                                     @else
-                                        <h4 class="p-2 font-semibold text-xl text-white text-center bg-red-600 leading-tight">No Users</h4>
+                                        <h4 class="p-2 text-xl font-semibold leading-tight text-center text-white bg-red-600">No Users</h4>
                                     @endif
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

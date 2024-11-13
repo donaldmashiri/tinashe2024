@@ -37,14 +37,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::resource('content-uploads', ContentUploadController::class);
+    Route::resource('content-uploads', controller: ContentUploadController::class);
     Route::resource('feedbacks', \App\Http\Controllers\FeedbackController::class);
     Route::resource('comments', \App\Http\Controllers\CommentController::class);
     Route::resource('reports', \App\Http\Controllers\ReportController::class);
     Route::resource('discussions', \App\Http\Controllers\DiscussionController::class);
     Route::resource('content-views', \App\Http\Controllers\ContentViewsController::class);
-    Route::resource('content-downloads', \App\Http\Controllers\ContentDonwloadController::class);
+    // Route::resource('content-downloads', \App\Http\Controllers\ContentDownloadController::class);
     Route::resource('users', \App\Http\Controllers\UserController::class);
+    Route::resource('messaging', controller: \App\Http\Controllers\MessagingController::class);
+
+    Route::get('/content-downloads/{id}', action: [ContentUploadController::class, 'download'])->name('content-downloads.download');
 
 });
 

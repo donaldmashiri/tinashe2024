@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/templatemo-grad-school.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/lightbox.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 </head>
 
@@ -26,7 +27,7 @@
 
 
 <!--header-->
-<header class="main-header clearfix mb-5" role="header">
+<header class="clearfix mb-5 main-header" role="header">
     <div class="logo">
         <a href="/"><em>creARTive-Connect</em> DECENTRALIZED CONTENT SHARING PLATFORM</a>
     </div>
