@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('content-uploads', ContentUploadController::class);
     Route::resource('feedbacks', \App\Http\Controllers\FeedbackController::class);
+    Route::resource('comments', \App\Http\Controllers\CommentController::class);
     Route::resource('reports', \App\Http\Controllers\ReportController::class);
     Route::resource('discussions', \App\Http\Controllers\DiscussionController::class);
     Route::resource('content-views', \App\Http\Controllers\ContentViewsController::class);

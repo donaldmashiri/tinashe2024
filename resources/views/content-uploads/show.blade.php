@@ -12,7 +12,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-3 lg:px-3">
-            <div class="bg-white overflow-hidden  text-center shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="w-full text-sm text-gray-500 dark:text-gray-400">
                     <table class="table table-striped table-bordered">
                         <tbody>
@@ -31,7 +31,7 @@
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th class="px-2 py-1">File</th>
                             <td class="px-2 py-1">
-                                <a href="{{ asset('storage/'.$content->file_path) }}" class="text-blue-600 dark:text-blue-500 hover:underline" target="_blank">Download</a>
+                                <a href="{{ asset($content->file_path) }}" class="text-blue-600 dark:text-blue-500 hover:underline" target="_blank">Download</a>
                             </td>
                         </tr>
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">

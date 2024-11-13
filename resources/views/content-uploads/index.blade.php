@@ -3,8 +3,12 @@
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
             <i class="bi bi-newspaper"></i> {{ __('Content Uploads') }}
             <a href="{{route('content-uploads.create')}}"
-               class="float-right px-4 py-2 text-sm font-semibold text-white bg-yellow-600 border border-yellow-600 rounded-lg">
+               class="float-right px-4 py-2 text-sm font-semibold text-white bg-blue-600 border border-yellow-600 rounded-lg">
                 <i class="bi bi-plus"></i>Add
+            </a>
+            <a href="{{ url('/content') }}"
+               class="float-right px-4 py-2 text-sm font-semibold text-white bg-yellow-600 border border-yellow-600 rounded-lg">
+                <i class="bi bi-pen"></i>Public View
             </a>
         </h2>
     </x-slot>
@@ -22,7 +26,7 @@
                                 <th scope="col" class="px-2 py-1">Title</th>
                                 <th scope="col" class="px-2 py-1">Description</th>
                                 <th scope="col" class="px-2 py-1">Content Type</th>
-                                <th scope="col" class="px-2 py-1">File</th>
+{{--                                <th scope="col" class="px-2 py-1">File</th>--}}
                                 <th scope="col" class="px-2 py-1">Actions</th>
                             </tr>
                             </thead>
@@ -33,9 +37,9 @@
                                     <td class="px-2 py-1">{{$content->title}}</td>
                                     <td class="px-2 py-1">{!! $content->description !!}</td>
                                     <td class="px-2 py-1">{{$content->content_type}}</td>
-                                    <td class="px-2 py-1">
-                                        <a href="{{asset($content->file_path)}}"  class="text-blue-600 dark:text-blue-500 hover:underline" target="_blank">Download</a>
-                                    </td>
+{{--                                    <td class="px-2 py-1">--}}
+{{--                                        <a href="{{asset($content->file_path)}}"  class="text-blue-600 dark:text-blue-500 hover:underline" target="_blank">Download</a>--}}
+{{--                                    </td>--}}
                                     <td class="px-2 py-1">
                                         <a href="{{ route('content-uploads.show', $content->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</a>
                                     </td>

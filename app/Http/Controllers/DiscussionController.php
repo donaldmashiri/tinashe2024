@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DiscussionController extends Controller
 {
@@ -12,7 +14,7 @@ class DiscussionController extends Controller
      */
     public function index()
     {
-        $discussions = Discussion::all();
+        $discussions = Discussion::orderBy('id', 'desc')->get();
         return view('discussions.index', compact('discussions'));
     }
 
@@ -29,7 +31,16 @@ class DiscussionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'topic' => 'required',
+        ]);
+
+        $discussion = Discussion::create([
+            'topic' => $request->topic,
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return redirect()->route('discussions.index')->with('success', 'Content uploaded successfully!');
     }
 
     /**
@@ -37,7 +48,8 @@ class DiscussionController extends Controller
      */
     public function show(Discussion $discussion)
     {
-        //
+        $comments = Comment::where('discussion_id', $discussion->id)->orderBy('id', 'desc')->get();
+        return view('discussions.show', compact('discussion', 'comments'));
     }
 
     /**

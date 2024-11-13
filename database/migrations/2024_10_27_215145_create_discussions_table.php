@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('discussions', function (Blueprint $table) {
             $table->id();
             $table->string('topic');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
