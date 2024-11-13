@@ -39,6 +39,7 @@ class ContentUploadController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate the incoming request data
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -46,18 +47,25 @@ class ContentUploadController extends Controller
             'file_path' => 'required|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
-        // Handle the file upload
+        // Initialize file path variable
         $filePath = null;
+
+        // Check if the file was uploaded
         if ($request->hasFile('file_path')) {
+            // Store the file and get its path
             $filePath = $request->file('file_path')->store('uploads', 'public');
+        } else {
+            // Optionally handle the case where the file is not uploaded
+            return redirect()->back()->withErrors(['file_path' => 'File upload failed.']);
         }
 
+        // Create a new ContentUpload instance
         $contentUpload = new ContentUpload();
         $contentUpload->title = $validated['title'];
         $contentUpload->description = $validated['description'];
         $contentUpload->content_type = $validated['content_type'];
-        $contentUpload->file_path = $filePath;
-        $contentUpload->user_id = Auth::user()->id;
+        $contentUpload->file_path = $filePath; // Path is stored relative to 'storage/app/public/'
+        $contentUpload->user_id = Auth::id(); // More concise way to get the authenticated user ID
         $contentUpload->save();
 
         // Redirect back with a success message
@@ -84,6 +92,14 @@ class ContentUploadController extends Controller
         // Find the content upload by ID
         $contentUpload = ContentUpload::findOrFail($id);
 
+        $filePath = public_path('storage/'.$contentUpload->file_path);
+        \Log::info('File path: ' . $filePath);
+
+        // Check if the file exists
+        if (!file_exists($filePath)) {
+            return response()->json(['error' => 'File not found'], 404);
+        }
+
         // Record the download
         ContentDownload::create([
             'content_upload_id' => $contentUpload->id,
@@ -94,7 +110,8 @@ class ContentUploadController extends Controller
         session()->flash('success', 'Successfully Downloaded');
 
         // Return the file for download
-        return response()->download(public_path($contentUpload->file_path));
+//        return response()->download(public_path($contentUpload->file_path));
+        return response()->download($filePath);
     }
     /**
      * Show the form for editing the specified resource.
