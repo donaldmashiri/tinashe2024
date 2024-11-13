@@ -60,11 +60,14 @@
                         </ul>
                     </div>
 
+
+                    @if (Auth::user()->user_type == 'admin')
                     <li class="me-2">
                         <a href="{{ route('reports.index') }}" class="inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
                             <i class="bi bi-bar-chart-line"></i> Analytics Report
                         </a>
                     </li>
+                    @endif
                 </ul>
 
                 <!-- Navigation Links -->
