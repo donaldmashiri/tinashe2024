@@ -24,7 +24,7 @@
                             <p>By:
                                 <a href="{{ route('users.show', $content->user->id )}}" target="_blank">{{ $content->user->name }}</a>
                             </p>
-                            <a href="{{ asset($content->file_path) }}"
+                            <a href="{{ asset('storage/'.$content->file_path) }}"
                                 class="text-blue-800 dark:text-blue-800 hover:underline"
                                 target="_blank"
                                 download="{{ basename($content->file_path) }}">
