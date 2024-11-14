@@ -42,7 +42,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => ['required', 'string', 'max:255', 'regex:/^[\p{L}0-9\s]+$/u'],
             'email' => 'required|string|email|max:255|unique:users',
             'user_type' => 'required|string|in:lecturer,student',
             'password' => 'required|string|min:8', // Assuming you have a password confirmation field
@@ -104,7 +104,7 @@ class UserController extends Controller
 
         // Validate the incoming request data
         $validated = $request->validate([
-            'name' => 'required|string|max:255|regex:/^[\p{L}0-9\s]+$/u',
+            'name' => ['required', 'string', 'max:255', 'regex:/^[\p{L}0-9\s]+$/u'],
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id, // Ignore the current user
             'user_type' => 'required',
          // Password is optional for updates
